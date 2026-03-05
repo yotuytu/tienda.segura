@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre nuestra colección exclusiva de joyería: anillos, collares, pulseras y aretes. Diseños únicos con pago contra entrega.">
+  <title>Joyería Exclusiva - Compra Segura Perú</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="imagenes/carrito logo.png">
+  <script src="scripts/cart.js" defer></script>
+  
+  <style>
+    :root {
+      --primary: #00D9A3;
+      --primary-dark: #00B386;
+      --secondary: #6366F1;
+      --accent: #F59E0B;
+      --dark: #0F172A;
+      --dark-light: #1E293B;
+      --gray: #64748B;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --border-radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Header Moderno */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+      padding: 1rem 0;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--dark);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .navbar a {
+      padding: 0.75rem 1.25rem;
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--primary);
+      background: rgba(0, 217, 163, 0.1);
+    }
+
+    .cart-badge {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 50%;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      height: 400px;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://www.orosolido14k.com/wp-content/uploads/2023/04/Venta-de-joyas-de-oro-min.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Search & Filters Section */
+    .filters-section {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 3rem 1rem 3rem;
+      font-size: 1rem;
+      border: 2px solid var(--light);
+      border-radius: 50px;
+      background: white;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 8px 20px rgba(0, 217, 163, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+    }
+
+    /* Category Filter Pills */
+    .category-pills {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .pill {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      border: 2px solid var(--light);
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--gray);
+    }
+
+    .pill:hover,
+    .pill.active {
+      background: var(--gradient-gold);
+      color: white;
+      border-color: #FFD700;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Products Section */
+    .products-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(255, 215, 0, 0.1);
+      color: #FFA500;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--gradient-gold);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+      text-transform: uppercase;
+    }
+
+    .product-image {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      background: var(--light);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-category {
+      color: #FFA500;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .product-description {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--light);
+    }
+
+    .product-price {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .add-to-cart-btn {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .add-to-cart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 217, 163, 0.4);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .footer-section h4 {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-light);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        justify-content: space-around;
+      }
+
+      .navbar a {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding-bottom: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="imagenes/carrito logo.png" alt="Compra Segura Logo" class="logo-img">
+        <span>Compra Segura</span>
+      </a>
+      
+      <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="joyerias.html" class="active">Joyería</a>
+        <a href="tecnologia.html">Tecnología</a>
+        <a href="varios.html">Variado</a>
+        <a href="packs.html" >Packs</a>
+        <a href="cart.html" class="cart-badge">
+         🛒 Carrito
+          <span class="cart-count" id="cart-count" style="display: none;">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1>✨ Joyería Exclusiva</h1>
+      <p>Diseños únicos que cuentan tu historia</p>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" 
+             id="searchInput" 
+             class="search-input" 
+             placeholder="Busca anillos, collares, pulseras...">
+    </div>
+
+    <div class="category-pills">
+      <button class="pill active" data-category="all">Todos</button>
+      <button class="pill" data-category="anillos">Anillos</button>
+      <button class="pill" data-category="collares">Collares</button>
+      <button class="pill" data-category="pulseras">Pulseras</button>
+      <button class="pill" data-category="aretes">Aretes</button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-container">
+    <div class="section-header">
+      <span class="section-badge">Colección Premium</span>
+      <h2>Nuestras Joyas</h2>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Anillos -->
+      <div class="product-card" data-category="anillos">
+        <div class="product-image">
+          <span class="product-badge">Popular</span>
+          <img src="imagenes/anillos de pareja.webp" alt="Anillo Sol Y Luna" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Anillos</div>
+          <h3 class="product-name">Anillo Sol Y Luna 2 En 1</h3>
+          <p class="product-description">
+            Joya que simboliza la armonía entre dos fuerzas complementarias. Medida: 2CM
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 69.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Anillo Sol Y Luna 2 En 1', 69)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="anillos">
+        <div class="product-image">
+          <img src="imagenes/dragon.png" alt="Anillo Dragon" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Anillos</div>
+          <h3 class="product-name">Anillo Dragon De La Suerte</h3>
+          <p class="product-description">
+            Atrae lo mejor para ti. Acero inoxidable 36L. Tamaño: 8CM
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Anillo Dragon De La Suerte', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="anillos">
+        <div class="product-image">
+          <img src="imagenes/buho.jpg" alt="Anillo Buho" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Anillos</div>
+          <h3 class="product-name">Anillo Buho</h3>
+          <p class="product-description">
+            Anillo liso cómodo para uso diario. Pulido brillante. Ajustable.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Anillo Buho', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="anillos">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="imagenes/girazol.png" alt="Anillo Girasol" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Anillos</div>
+          <h3 class="product-name">Anillo Girasol</h3>
+          <p class="product-description">
+            Símbolo de amor y alegría. Un toque de luz en tu romance.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 65.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Anillo Girasol', 65)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aretes -->
+      <div class="product-card" data-category="aretes">
+        <div class="product-image">
+          <img src="imagenes/luna.png" alt="Aretes Luna" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Aretes</div>
+          <h3 class="product-name">Aretes Luna</h3>
+          <p class="product-description">
+            Aretes clásicos y elegantes con diseño de luna.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 54.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Aretes Luna', 54)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="aretes">
+        <div class="product-image">
+          <span class="product-badge">Top</span>
+          <img src="imagenes/flor.png" alt="Arete Flor Giratoria" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Aretes</div>
+          <h3 class="product-name">Arete Flor Giratoria</h3>
+          <p class="product-description">
+            Añade magia y movimiento a tu estilo con estos aretes giratorios.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 50.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Arete Flor Giratoria', 50)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="aretes">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/1855/1707628816Screenshot%202024-02-11%20at%2000.20.05.png" alt="Aretes Zafiro" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Aretes</div>
+          <h3 class="product-name">Aretes Zafiro</h3>
+          <p class="product-description">
+            Atrae riqueza y prosperidad con estos elegantes aretes.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 80.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Aretes Zafiro', 80)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collares -->
+      <div class="product-card" data-category="collares">
+        <div class="product-image">
+          <img src="imagenes/iluminati.jpeg" alt="Cadena Iluminati" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Collares</div>
+          <h3 class="product-name">Cadena Iluminati</h3>
+          <p class="product-description">
+            Poder y simbolismo de la mítica sociedad secreta.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 69.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Cadena Iluminati', 69)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="collares">
+        <div class="product-image">
+          <img src="imagenes/ra y anuvis.png" alt="Cadena Ra Y Anubis" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Collares</div>
+          <h3 class="product-name">Cadena Ra Y Anubis</h3>
+          <p class="product-description">
+            Descubre el poder de los dioses egipcios.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 65.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Cadena Ra Y Anubis', 65)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="collares">
+        <div class="product-image">
+          <img src="imagenes/collarluna.png" alt="Collar Luna" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Collares</div>
+          <h3 class="product-name">Collar Luna</h3>
+          <p class="product-description">
+            La luna siempre estará contigo. Diseño elegante y atemporal.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 60.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Collar Luna', 60)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="collares">
+        <div class="product-image">
+          <span class="product-badge">Popular</span>
+          <img src="imagenes/collar flot.png" alt="Collar Flor Giratoria" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Collares</div>
+          <h3 class="product-name">Collar Flor Giratoria</h3>
+          <p class="product-description">
+            Regalo perfecto para tu pareja. Flor con movimiento.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 60.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Collar Flor Giratoria', 60)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="collares">
+        <div class="product-image">
+          <img src="imagenes/collar de girazol 2.jpeg" alt="Collar Eres Mi Sol" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Collares</div>
+          <h3 class="product-name">Collar Eres Mi Sol</h3>
+          <p class="product-description">
+            Captura la luz del sol y el amor eterno.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 65.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Collar Eres Mi Sol', 65)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pulseras -->
+      <div class="product-card" data-category="pulseras">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="imagenes/pulsera lobo.png" alt="Pulsera Lobo" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pulseras</div>
+          <h3 class="product-name">Pulsera Lobo</h3>
+          <p class="product-description">
+            Fuerza y libertad en tu muñeca. Protección y estilo.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 80.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pulsera Lobo', 80)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="pulseras">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/1828/1707634453Screenshot%202024-02-11%20at%2001.53.28.png" alt="Pulsera Luna" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pulseras</div>
+          <h3 class="product-name">Pulsera Luna</h3>
+          <p class="product-description">
+            Diseño elegante con piedras brillantes. Símbolo de intuición.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pulsera Luna', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="pulseras">
+        <div class="product-image">
+          <img src="imagenes/17 y 15 cm pulcera.png" alt="Pulsera Palo Santo" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pulseras</div>
+          <h3 class="product-name">Pulsera Palo Santo Aromática</h3>
+          <p class="product-description">
+            Cuentas de madera de Palo Santo. Efecto relajante.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pulsera Palo Santo Aromatica', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="pulseras">
+        <div class="product-image">
+          <span class="product-badge">Top</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3813/1720742899Screenshot%202024-07-11%20at%2019.04.51.png" alt="Pulsera Feng Shui" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pulseras</div>
+          <h3 class="product-name">Pulsera Feng Shui X1</h3>
+          <p class="product-description">
+            Atrae riqueza y prosperidad. Armonía contigo siempre.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pulsera Feng Shui X1', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Compra Segura</h3>
+          <p>
+            Tu tienda online de confianza en Perú. Joyería exclusiva con envío a todo el país.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Categorías</h4>
+          <ul class="footer-links">
+            <li><a href="joyerias.html">Joyería</a></li>
+            <li><a href="tecnologia.html">Tecnología</a></li>
+            <li><a href="varios.html">Variados</a></li>
+             <li><a href="packs.html">Packs Temáticos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Información</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cart.html">Mi Carrito</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+51949578671">📞 949578671</a></li>
+            <li><a href="mailto:ventasdeproductosdeperu@gmail.com">✉️ Email</a></li>
+            <li>📍 Junín, Perú</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Compra Segura. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/51949578671?text=Hola,%20quisiera%20más%20información%20sobre%20joyería" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    // Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const productCards = document.querySelectorAll('.product-card');
+
+    searchInput.addEventListener('keyup', function() {
+      const searchTerm = this.value.toLowerCase();
+      
+      productCards.forEach(card => {
+        const productName = card.querySelector('.product-name').textContent.toLowerCase();
+        const productDescription = card.querySelector('.product-description').textContent.toLowerCase();
+        
+        if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Category Filter
+    const pills = document.querySelectorAll('.pill');
+    
+    pills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        pills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        
+        const category = this.dataset.category;
+        
+        productCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('carrito')) || [];
+      const count = cart.reduce((sum, item) => sum + (item.cantidad || 1), 0);
+      const cartCountEl = document.getElementById('cart-count');
+      if (count > 0) {
+        cartCountEl.textContent = count;
+        cartCountEl.style.display = 'inline';
+      } else {
+        cartCountEl.style.display = 'none';
+      }
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>

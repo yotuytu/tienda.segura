@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Productos variados: hogar, belleza, accesorios y más. Descubre artículos únicos con pago contra entrega.">
+  <title>Productos Variados - Compra Segura Perú</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="imagenes/carrito logo.png">
+  <script src="scripts/cart.js" defer></script>
+  
+  <style>
+    :root {
+      --primary: #00D9A3;
+      --primary-dark: #00B386;
+      --secondary: #6366F1;
+      --accent: #F59E0B;
+      --pink: #f093fb;
+      --purple: #764ba2;
+      --dark: #0F172A;
+      --dark-light: #1E293B;
+      --gray: #64748B;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --gradient-rainbow: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ffa500 100%);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --border-radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+      padding: 1rem 0;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--dark);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover { transform: scale(1.05); }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .navbar a {
+      padding: 0.75rem 1.25rem;
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover, .navbar a.active {
+      color: var(--primary);
+      background: rgba(0, 217, 163, 0.1);
+    }
+
+    .cart-badge { position: relative; }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 50%;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Hero Banner Rainbow */
+    .hero-banner {
+      position: relative;
+      height: 450px;
+      background: var(--gradient-rainbow);
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('imagenes/Presentacion corporativa lineas azul.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+    }
+
+    /* Floating Shapes */
+    .floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.2;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .shape-1 {
+      width: 300px;
+      height: 300px;
+      background: white;
+      border-radius: 50%;
+      top: -100px;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 200px;
+      height: 200px;
+      background: white;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      bottom: -50px;
+      right: 15%;
+      animation-delay: 3s;
+    }
+
+    .shape-3 {
+      width: 250px;
+      height: 250px;
+      background: white;
+      border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+      top: 40%;
+      right: 5%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) rotate(240deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Filters Section */
+    .filters-section {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      border: 2px solid var(--light);
+      border-radius: 50px;
+      background: white;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #f5576c;
+      box-shadow: 0 8px 20px rgba(245, 87, 108, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+    }
+
+    /* Category Pills */
+    .category-pills {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .pill {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      border: 2px solid var(--light);
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--gray);
+    }
+
+    .pill:hover, .pill.active {
+      background: var(--gradient-rainbow);
+      color: white;
+      border-color: #f5576c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+    }
+
+    /* Products Section */
+    .products-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(245, 87, 108, 0.1);
+      color: #f5576c;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--gradient-rainbow);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+      text-transform: uppercase;
+    }
+
+    .product-image {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      background: var(--light);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-category {
+      color: #f5576c;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .product-description {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--light);
+    }
+
+    .product-price {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .add-to-cart-btn {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .add-to-cart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 217, 163, 0.4);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .footer-section h4 {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-light);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        justify-content: space-around;
+      }
+
+      .navbar a {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding-bottom: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="imagenes/carrito logo.png" alt="Compra Segura Logo" class="logo-img">
+        <span>Compra Segura</span>
+      </a>
+      
+      <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="joyerias.html">Joyería</a>
+        <a href="tecnologia.html">Tecnología</a>
+        <a href="varios.html" class="active">Variado</a>
+        <a href="packs.html" >Packs</a>
+        <a href="cart.html" class="cart-badge">
+          🛒 Carrito
+          <span class="cart-count" id="cart-count" style="display: none;">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <h1>🌈 Productos Variados</h1>
+      <p>Encuentra artículos únicos para cada necesidad</p>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" 
+             id="searchInput" 
+             class="search-input" 
+             placeholder="Busca mochilas, belleza, hogar...">
+    </div>
+
+    <div class="category-pills">
+      <button class="pill active" data-category="all">Todos</button>
+      <button class="pill" data-category="hogar">Hogar</button>
+      <button class="pill" data-category="belleza">Belleza</button>
+      <button class="pill" data-category="accesorios">Accesorios</button>
+      <button class="pill" data-category="educacion">Educación</button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-container">
+    <div class="section-header">
+      <span class="section-badge">Descubre Más</span>
+      <h2>Nuestra Variedad</h2>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Accesorios -->
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <span class="product-badge">Trending</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6648/1745334070Captura%20de%20pantalla_12-11-2024_215920_www.alibaba.com.jpeg" alt="Mochilas Led" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Mochilas Led</h3>
+          <p class="product-description">
+            Mochila con pantalla LED personalizable. Tecnología y estilo en uno.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 350.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Mochilas Led', 350)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6240/17408392511.jpg" alt="Mochila Con Lonchera" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Mochila Con Lonchera Ploma</h3>
+          <p class="product-description">
+            Mochila escolar con lonchera incluida. Perfecta para niños.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 170.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Mochila Con Lonchera Ploma', 170)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6231/174071568011.jpg" alt="Lonchera Térmica" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Lonchera Térmica Con Bandolera Ev</h3>
+          <p class="product-description">
+            Térmica con bandolera. Colores: azul, negro, rojo, plomo.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 80.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Lonchera Termica Con Bandolera Ev', 80)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hogar -->
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <span class="product-badge">Popular</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3445/1723780010Screenshot%202024-08-15%20at%2022.45.20.png" alt="Esponja Saca Mugre" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Pack De 3 Esponja Saca Mugre</h3>
+          <p class="product-description">
+            Pack de esponjas para limpieza profunda. Elimina la suciedad difícil.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 50.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack De 3 Esponja Saca Mugre', 50)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/2859/1710820942FOCO3.webp" alt="Tira De Socket" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Tira De Socket Guirnalda Led Exteriores</h3>
+          <p class="product-description">
+            Guirnalda LED para exteriores. Iluminación decorativa perfecta.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 169.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Tira De Socket Guirnalda Ledexteriores', 169)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/1098/1702520171315863928_4094596937330901_3950308575772211092_n.jpg" alt="Extensión Flexible" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Extensión Flexible Para Taladro</h3>
+          <p class="product-description">
+            Extensión flexible para taladro. Ideal para lugares difíciles.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 79.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Extension Flexible Para Taladro', 79)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/2998/1711492531Screenshot%202024-03-26%20at%2017.35.25.png" alt="Máquina De Coser" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Máquina De Coser Portátil</h3>
+          <p class="product-description">
+            Portátil y fácil de usar. Perfecta para reparaciones rápidas.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 85.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Maquina De Coser Portatil', 85)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3947/1722025930WhatsApp%20Image%202024-07-26%20at%203.09.06%20PM.jpeg" alt="Aspiradora Mata Ácaros" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Aspiradora Mata Ácaros Deluxe</h3>
+          <p class="product-description">
+            Aspiradora especial para eliminar ácaros. Hogar más saludable.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 199.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Aspiradora Mata Acaros Deluxe', 199)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Belleza -->
+      <div class="product-card" data-category="belleza">
+        <div class="product-image">
+          <span class="product-badge">Top</span>
+          <img src="https://api.dropi.pe/uploads/images/products/117/Imagen%20de%20WhatsApp%202023-07-13%20a%20las%2021.30.56.jpg" alt="Correctores" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Belleza</div>
+          <h3 class="product-name">Pack De Correctores Perfilador De Nariz</h3>
+          <p class="product-description">
+            Pack de correctores para perfilar la nariz. Maquillaje profesional.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 50.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack De Correctores Perfilador De Nari', 50)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="belleza">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3955/17220283411.JPG" alt="Rodillo Facial" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Belleza</div>
+          <h3 class="product-name">Rodillo Facial De Hielo De Silicona</h3>
+          <p class="product-description">
+            Rodillo facial de silicona para masajes. Refresca y tonifica.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 35.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Rodillo Facial De Hielo De Silicona', 35)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="belleza">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3967/17220344671.JPG" alt="Depilador De Cejas" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Belleza</div>
+          <h3 class="product-name">Depilador De Cejas Portátil Recargable</h3>
+          <p class="product-description">
+            Depilador portátil recargable para cejas. Preciso y fácil de usar.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 55.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Depilador De Cejas Portatil Recargable', 55)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="belleza">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4263/1725806484Screenshot%202024-09-08%20at%2009.40.47.png" alt="Masajeador Facial" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Belleza</div>
+          <h3 class="product-name">Masajeador Facial Microcorriente</h3>
+          <p class="product-description">
+            Masajeador facial con microcorriente. Tecnología de rejuvenecimiento.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 81.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Masajeador Facial Microcorriente', 81)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="belleza">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6466/1743454268WhatsApp%20Image%202025-03-31%20at%203.50.18%20PM.jpeg" alt="Limpiador De Brochas" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Belleza</div>
+          <h3 class="product-name">Limpiador De Brochas Eléctrico</h3>
+          <p class="product-description">
+            Limpiador eléctrico para brochas de maquillaje. Rápido y eficiente.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 69.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Limpiador De Brochas Electrico', 69)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="belleza">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6512/1744048148WhatsApp%20Image%202025-04-07%20at%2012.48.42%20PM.jpeg" alt="Esterilizador" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Belleza</div>
+          <h3 class="product-name">Esterilizador De Cepillos</h3>
+          <p class="product-description">
+            Esterilizador portátil para cepillos. Higiene y salud dental.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 65.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Esterilizador De Cepillos', 65)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Educación -->
+      <div class="product-card" data-category="educacion">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6442/1743441214WhatsApp%20Image%202025-03-31%20at%2012.12.56%20PM.jpeg" alt="Pizarra Plegable" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Educación</div>
+          <h3 class="product-name">Pizarra Plegable Para Tiza Adhesiva</h3>
+          <p class="product-description">
+            Pizarra plegable adhesiva para tiza. Perfecta para niños.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 79.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pizarra Plegable Para Tiza Adhesiva', 79)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3586/1716990465sin%20fondo.png" alt="Cúpula Rosa" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Cúpula Rosa Eterna Príncipe Y Princesa</h3>
+          <p class="product-description">
+            Cúpula decorativa con rosa eterna. Regalo romántico perfecto.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 35.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Cupula Rosa Eterna Principe Y Princesa', 35)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4872/1733863348descarga%20-%202024-12-10T154117.634.jpeg" alt="Ventilador 3 En 1" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Ventilador 3 En 1</h3>
+          <p class="product-description">
+            Ventilador multifunción 3 en 1. Versátil y eficiente.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 99.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Ventilador 3 En 1', 99)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <span class="product-badge">Fun</span>
+          <img src="https://api.dropi.pe/uploads/images/products/211/g6eES9kY0vUR9JP1UKWwLu4YxZXtN6fDaC3mBs3Y.jpg" alt="Llaveros BTS" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Pack De 8 Llaveros BTS</h3>
+          <p class="product-description">
+            Pack de 8 llaveros BTS. Para fans del K-Pop.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 69.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack De 8 Llaveros BtsB', 69)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/5916/1738341198litnernasx.jpg" alt="Linterna Martillo" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Linterna Martillo 6 En 1 Regalo Lentes</h3>
+          <p class="product-description">
+            Linterna multifunción con regalo de lentes. 6 funciones en 1.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 80.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Linterna Martillo 6 En 1 Regalo Lentes', 80)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6593/1745074451SOPORTE-DE-LAPTOP.jpg" alt="Soporte De Laptop" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Soporte De Laptop</h3>
+          <p class="product-description">
+            Soporte ajustable para laptop. Mejora postura y comodidad.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 79.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Soporte De Laptop', 79)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <span class="product-badge">Hot</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6599/1745076501STUNT-CAR.jpg" alt="Stunt Car" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Stunt Car</h3>
+          <p class="product-description">
+            Carro acrobático de control remoto. Diversión garantizada.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 150.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Stunt Car', 150)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/7795/1758902285ChatGPT%20Image%2026%20sept%202025,%2010_53_12%20a.m.%20(1).png" alt="Pistola De Clavos Fulminantes" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Pistola De Clavos Fulminantes</h3>
+          <p class="product-description">
+            Hecha de metal sólido. Pernos Molly de acero al carbono. Peso ligero.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 120.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pistola De Clavos Fulminantes', 120)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <span class="product-badge">Popular</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/7604/1754784180130140_4.jpg" alt="Mini Aspiradora Portatil Recargable" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Mini Aspiradora Portátil Recargable</h3>
+          <p class="product-description">
+            Para limpiar donde no alcanza la escoba. Fácil, ligera y moderna. Elimina pelos de mascotas. Aspirador y soplador.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 59.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Mini Aspiradora Portatil Recargable', 59)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="belleza">
+        <div class="product-image">
+          <span class="product-badge">Top</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/5374/1737986289img-irrigador-bucal.png" alt="Irrigador Bucal Premium" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Belleza</div>
+          <h3 class="product-name">Irrigador Bucal Premium</h3>
+          <p class="product-description">
+            Garantiza la mejor limpieza bucal. 4 modos únicos: limpieza diaria, eliminar restos de comida, enjuague y masaje.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 79.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Irrigador Bucal Premium', 79)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="accesorios">
+        <div class="product-image">
+          <span class="product-badge">Exclusivo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/2876/17109042422.png" alt="Mochila Escolar BTS" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accesorios</div>
+          <h3 class="product-name">Mochila Escolar BTS Color Negro</h3>
+          <p class="product-description">
+            Incluye cartuchera, card BTS, cable de carga, cable de audio y pompón. Alta calidad y muy cómoda. 46cm x 26cm.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 115.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Mochila Escolar BTS Color Negro', 115)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="hogar">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/7796/17589025811752762187562_72a30653fc8ad8663eb2bc2475f40f81.jpg" alt="Selladora Al Vacio Electrica" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Hogar</div>
+          <h3 class="product-name">Selladora Al Vacío Eléctrica Conserva</h3>
+          <p class="product-description">
+            Conserva tu comida fresca y limpia. Eléctrica con pantalla. Mantiene el sabor original de los productos.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 120.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Selladora Al Vacio Electrica Conserva', 120)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Compra Segura</h3>
+          <p>
+            Productos variados para todas tus necesidades. Envío a todo el Perú.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Categorías</h4>
+          <ul class="footer-links">
+            <li><a href="joyerias.html">Joyería</a></li>
+            <li><a href="tecnologia.html">Tecnología</a></li>
+            <li><a href="varios.html">Variados</a></li>
+             <li><a href="packs.html">Packs Temáticos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Información</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cart.html">Mi Carrito</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+51949578671">📞 949578671</a></li>
+            <li><a href="mailto:ventasdeproductosdeperu@gmail.com">✉️ Email</a></li>
+            <li>📍 Junín, Perú</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Compra Segura. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/51949578671?text=Hola,%20quisiera%20más%20información%20sobre%20productos%20variados" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    // Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const productCards = document.querySelectorAll('.product-card');
+
+    searchInput.addEventListener('keyup', function() {
+      const searchTerm = this.value.toLowerCase();
+      
+      productCards.forEach(card => {
+        const productName = card.querySelector('.product-name').textContent.toLowerCase();
+        const productDescription = card.querySelector('.product-description').textContent.toLowerCase();
+        
+        if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Category Filter
+    const pills = document.querySelectorAll('.pill');
+    
+    pills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        pills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        
+        const category = this.dataset.category;
+        
+        productCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('carrito')) || [];
+      const count = cart.reduce((sum, item) => sum + (item.cantidad || 1), 0);
+      const cartCountEl = document.getElementById('cart-count');
+      if (count > 0) {
+        cartCountEl.textContent = count;
+        cartCountEl.style.display = 'inline';
+      } else {
+        cartCountEl.style.display = 'none';
+      }
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>

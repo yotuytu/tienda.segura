@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tecnología de vanguardia: audífonos, smartwatches, drones y más. Pago contra entrega en todo Perú.">
+  <title>Tecnología Innovadora - Compra Segura Perú</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="imagenes/carrito logo.png">
+  <script src="scripts/cart.js" defer></script>
+  
+  <style>
+    :root {
+      --primary: #00D9A3;
+      --primary-dark: #00B386;
+      --secondary: #6366F1;
+      --accent: #F59E0B;
+      --tech-blue: #4facfe;
+      --tech-cyan: #00f2fe;
+      --dark: #0F172A;
+      --dark-light: #1E293B;
+      --gray: #64748B;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --gradient-tech: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --border-radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+      padding: 1rem 0;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--dark);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover { transform: scale(1.05); }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .navbar a {
+      padding: 0.75rem 1.25rem;
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover, .navbar a.active {
+      color: var(--primary);
+      background: rgba(0, 217, 163, 0.1);
+    }
+
+    .cart-badge { position: relative; }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 50%;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Hero Banner Tech */
+    .hero-banner {
+      position: relative;
+      height: 450px;
+      background: var(--gradient-tech);
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://i.pinimg.com/736x/a2/93/65/a29365b1eb77843b32359a0ca5149d07.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+    }
+
+    /* Tech Grid Pattern */
+    .tech-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: moveGrid 20s linear infinite;
+    }
+
+    @keyframes moveGrid {
+      0% { background-position: 0 0; }
+      100% { background-position: 50px 50px; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Filters Section */
+    .filters-section {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      border: 2px solid var(--light);
+      border-radius: 50px;
+      background: white;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--tech-cyan);
+      box-shadow: 0 8px 20px rgba(79, 172, 254, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+    }
+
+    /* Category Pills */
+    .category-pills {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .pill {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      border: 2px solid var(--light);
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--gray);
+    }
+
+    .pill:hover, .pill.active {
+      background: var(--gradient-tech);
+      color: white;
+      border-color: var(--tech-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+    }
+
+    /* Products Section */
+    .products-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(79, 172, 254, 0.1);
+      color: var(--tech-blue);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--gradient-tech);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+      text-transform: uppercase;
+    }
+
+    .product-image {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      background: var(--light);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-category {
+      color: var(--tech-blue);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .product-description {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--light);
+    }
+
+    .product-price {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .add-to-cart-btn {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .add-to-cart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 217, 163, 0.4);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .footer-section h4 {
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-light);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        justify-content: space-around;
+      }
+
+      .navbar a {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding-bottom: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="imagenes/carrito logo.png" alt="Compra Segura Logo" class="logo-img">
+        <span>Compra Segura</span>
+      </a>
+      
+      <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="joyerias.html">Joyería</a>
+        <a href="tecnologia.html" class="active">Tecnología</a>
+        <a href="varios.html">Variado</a>
+        <a href="packs.html" >Packs</a>
+        <a href="cart.html" class="cart-badge">
+         🛒 Carrito
+          <span class="cart-count" id="cart-count" style="display: none;">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="tech-pattern"></div>
+    <div class="hero-content">
+      <h1>🚀 Tecnología Innovadora</h1>
+      <p>Los gadgets más avanzados del mercado</p>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" 
+             id="searchInput" 
+             class="search-input" 
+             placeholder="Busca audífonos, smartwatches, drones...">
+    </div>
+
+    <div class="category-pills">
+      <button class="pill active" data-category="all">Todos</button>
+      <button class="pill" data-category="audio">Audio</button>
+      <button class="pill" data-category="smartwatch">Smartwatch</button>
+      <button class="pill" data-category="gaming">Gaming</button>
+      <button class="pill" data-category="gadgets">Gadgets</button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-container">
+    <div class="section-header">
+      <span class="section-badge">Lo Más Nuevo</span>
+      <h2>Productos Tecnológicos</h2>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Audio -->
+      <div class="product-card" data-category="audio">
+        <div class="product-image">
+          <span class="product-badge">Popular</span>
+          <img src="imagenes/F9.jpg" alt="Audífono Bluetooth F9" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Audio</div>
+          <h3 class="product-name">Audífono Bluetooth F9</h3>
+          <p class="product-description">
+            Inalámbricos con excelente calidad de sonido. Power bank 2500mAh incluido.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 60.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Audifono Bluetooth F9', 60)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="audio">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3615/1717272829dropip105.jpg" alt="Audífonos Estilo Aretes" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Audio</div>
+          <h3 class="product-name">Audífonos Inalámbricos Estilo Aretes</h3>
+          <p class="product-description">
+            Diseño innovador tipo aretes con batería de alta capacidad.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 85.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Audifonos Inalambricos Estilo Aretes', 85)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="audio">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3907/17219356764.JPG" alt="Parlante Charge 2" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Audio</div>
+          <h3 class="product-name">Parlante Charge 2 Replica</h3>
+          <p class="product-description">
+            Portátil con Bluetooth y batería de larga duración.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 60.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Parlante Charge 2 Replica', 60)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="audio">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4153/1724703171Screenshot%202024-08-26%20at%2015.07.59.png" alt="Lentes Con Audífonos" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Audio</div>
+          <h3 class="product-name">Lentes Con Audífonos Bluetooth</h3>
+          <p class="product-description">
+            Protección solar y música en uno. Look moderno y funcional.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Lentes Con Audifonos Bluetooth', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smartwatch -->
+      <div class="product-card" data-category="smartwatch">
+        <div class="product-image">
+          <span class="product-badge">Top</span>
+          <img src="imagenes/X8 max.jpeg" alt="Smart Watch X8 Max" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Smartwatch</div>
+          <h3 class="product-name">Smart Watch X8 Max</h3>
+          <p class="product-description">
+            Bluetooth, notificaciones, monitor de salud completo.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 110.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Smart Watch X8 Max', 110)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="smartwatch">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3904/17219334235.jpeg" alt="Smartwatch Ts900" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Smartwatch</div>
+          <h3 class="product-name">Smartwatch Ts900 O Ds9 Plus</h3>
+          <p class="product-description">
+            Múltiples funciones, monitoreo de salud y notificaciones.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 50.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Smartwatch Ts900 O Ds9 Plus', 50)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="smartwatch">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/3910/17219397131.jpeg" alt="Smartwatch I9 Pro Max" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Smartwatch</div>
+          <h3 class="product-name">Smartwatch I9 Pro Max</h3>
+          <p class="product-description">
+            Responde llamadas, caja 49mm, Bluetooth, múltiples funciones.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 60.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Smartwatch I9 Pro Max', 60)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gaming -->
+      <div class="product-card" data-category="gaming">
+        <div class="product-image">
+          <span class="product-badge">Exclusivo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4335/1727384686714yW6cEdOL._AC_SX679_.jpg" alt="Anbernic Rg35xxsp" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gaming</div>
+          <h3 class="product-name">Anbernic Rg35xxsp 128gb 10000 Juegos</h3>
+          <p class="product-description">
+            Consola portátil retro con 10,000 juegos clásicos incluidos.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 370.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Anbernic Rg35xxsp 128gb 10000 Juegos', 370)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="gaming">
+        <div class="product-image">
+          <span class="product-badge">Premium</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4830/17334228796.jpg" alt="Trimui Smart Pro" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gaming</div>
+          <h3 class="product-name">Trimui Smart Pro 128gb</h3>
+          <p class="product-description">
+            Pantalla 5" HD, 10,000 juegos, batería 5,000mAh.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 420.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Trimui Smart Pro 128gb', 420)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="gaming">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4337/172738590961LHlBWu0eL._SX466_.jpg" alt="Powkiddy V10" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gaming</div>
+          <h3 class="product-name">Powkiddy V10 128gb 10000 Juegos</h3>
+          <p class="product-description">
+            Pantalla GBA, CPU quad-core, 60FPS, simuladores 3D.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 280.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Powkiddy V10 128gb 10000 Juegos', 280)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gadgets -->
+      <div class="product-card" data-category="gadgets">
+        <div class="product-image">
+          <span class="product-badge">Hot</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6607/1745078174VENTILADOR-DE-CUELLO.jpg" alt="Ventilador De Cuello" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gadgets</div>
+          <h3 class="product-name">Ventilador De Cuello Portátil</h3>
+          <p class="product-description">
+            Personal, 3 velocidades, batería 1200mA, 3-5 horas.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 80.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Ventilador De Cuello Portatil', 80)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="gadgets">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/2177/1710021143Lampara%20mata%20mosco%201.webp" alt="Lámpara Mata Mosquitos" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gadgets</div>
+          <h3 class="product-name">Lámpara Premium Mata Mosquitos</h3>
+          <p class="product-description">
+            USB, LED, resistente al agua, 19x12x12cm.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Lampara Premium Mata Mosquitos', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="gadgets">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4911/1734278645DRONE88.webp" alt="Drone E88pro" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gadgets</div>
+          <h3 class="product-name">Drone Con Cámara 4K E88pro</h3>
+          <p class="product-description">
+            Cámara 4K, 30 min vuelo, alcance 100m, control remoto.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 160.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Drone Con Camara 4k E88pro', 160)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="gadgets">
+        <div class="product-image">
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4917/1734376501ASTRONAUTA.JPG" alt="Astronauta Volador" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gadgets</div>
+          <h3 class="product-name">Astronauta Robot Volador Blanco</h3>
+          <p class="product-description">
+            Sensor spaceman, diseño ergonómico, perfecto regalo +3 años.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 70.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Astronauta Robot Volador Blanco', 70)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="gadgets">
+        <div class="product-image">
+          <span class="product-badge">Top</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/6860/1747543010WhatsApp%20Image%202025-05-16%20at%2011.07.17%20AM.jpeg" alt="Secador De Ropa" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gadgets</div>
+          <h3 class="product-name">Secador De Ropa Portátil</h3>
+          <p class="product-description">
+            Seca en 20 min, hasta 12 prendas simultáneas, alta potencia.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 180.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Secador De Ropa Portatil', 180)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="gadgets">
+        <div class="product-image">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://d39ru7awumhhs2.cloudfront.net/peru/products/4803/1733169640WhatsApp%20Image%202024-09-27%20at%203.36.47%20PM%20(1)%20(1).jpeg" alt="Proyector De Luces Octagonal" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Gadgets</div>
+          <h3 class="product-name">Proyector De Luces Octagonal</h3>
+          <p class="product-description">
+            5 tipos de proyecciones dinámicas con variedad de colores y combinaciones.
+          </p>
+          <div class="product-footer">
+            <div class="product-price">S/. 95.00</div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Proyector De Luces Octagonal', 95)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Compra Segura</h3>
+          <p>
+            Tecnología de vanguardia con envío a todo el Perú. Pago contra entrega.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Categorías</h4>
+          <ul class="footer-links">
+            <li><a href="joyerias.html">Joyería</a></li>
+            <li><a href="tecnologia.html">Tecnología</a></li>
+            <li><a href="varios.html">Variados</a></li>
+             <li><a href="packs.html">Packs Temáticos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Información</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cart.html">Mi Carrito</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+51949578671">📞 949578671</a></li>
+            <li><a href="mailto:ventasdeproductosdeperu@gmail.com">✉️ Email</a></li>
+            <li>📍 Junín, Perú</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Compra Segura. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/51949578671?text=Hola,%20quisiera%20más%20información%20sobre%20tecnología" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script>
+    // Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const productCards = document.querySelectorAll('.product-card');
+
+    searchInput.addEventListener('keyup', function() {
+      const searchTerm = this.value.toLowerCase();
+      
+      productCards.forEach(card => {
+        const productName = card.querySelector('.product-name').textContent.toLowerCase();
+        const productDescription = card.querySelector('.product-description').textContent.toLowerCase();
+        
+        if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Category Filter
+    const pills = document.querySelectorAll('.pill');
+    
+    pills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        pills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        
+        const category = this.dataset.category;
+        
+        productCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('carrito')) || [];
+      const count = cart.reduce((sum, item) => sum + (item.cantidad || 1), 0);
+      const cartCountEl = document.getElementById('cart-count');
+      if (count > 0) {
+        cartCountEl.textContent = count;
+        cartCountEl.style.display = 'inline';
+      } else {
+        cartCountEl.style.display = 'none';
+      }
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>

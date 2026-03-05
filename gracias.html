@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="¡Gracias por tu compra! Nos comunicaremos contigo pronto para confirmar tu pedido.">
+  <title>Gracias por tu compra - Compra Segura</title>
+  <link rel="icon" type="image/png" href="imagenes/carrito logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 550px;
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .success-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    h1 {
+      color: #28a745;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .highlight {
+      color: #28a745;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-inicio {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .btn-inicio:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebf57;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+    }
+
+    .order-info {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 4px solid #28a745;
+    }
+
+    .order-info h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .order-info ul {
+      list-style: none;
+      text-align: left;
+      color: #666;
+    }
+
+    .order-info li {
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .order-info li:last-child {
+      border-bottom: none;
+    }
+
+    .float-wa {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .float-wa:hover {
+      transform: scale(1.1);
+    }
+
+    .float-wa img {
+      width: 35px;
+      height: 35px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .success-icon {
+        font-size: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon" aria-hidden="true">🎉</div>
+    <h1>¡Gracias por tu compra!</h1>
+    <p>Tu pedido ha sido recibido exitosamente. Nos comunicaremos contigo pronto por WhatsApp para confirmar los detalles.</p>
+
+    <div class="order-info">
+      <h3>📋 Información importante</h3>
+      <ul>
+        <li>✅ Todos los pedidos son <span class="highlight">pago contra entrega</span></li>
+        <li>📞 Te contactaremos para confirmar tu pedido</li>
+        <li>🚚 Envíos a todo el Perú</li>
+        <li>💰 Paga cuando recibas tu producto</li>
+      </ul>
+    </div>
+
+    <p>¿Tienes alguna duda? Contáctanos por WhatsApp y te ayudaremos encantados.</p>
+
+    <div class="buttons">
+      <a class="btn btn-inicio" href="index.html">🏠 Volver al inicio</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/51949578671?text=Hola,%20acabo%20de%20realizar%20un%20pedido" target="_blank" rel="noopener noreferrer">💬 Hablar por WhatsApp</a>
+    </div>
+  </div>
+
+  <a href="https://wa.me/51949578671?text=Hola,%20quisiera%20más%20información%20sobre%20un%20producto" 
+     class="float-wa" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+</body>
+</html>

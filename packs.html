@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Packs temáticos exclusivos con descuentos especiales. Combos perfectos para regalar o disfrutar. Pago contra entrega en todo Perú.">
+  <title>Packs Temáticos - Compra Segura Perú</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="imagenes/carrito logo.png">
+  <script src="scripts/cart.js" defer></script>
+  
+  <style>
+    :root {
+      --primary: #00D9A3;
+      --primary-dark: #00B386;
+      --secondary: #6366F1;
+      --accent: #F59E0B;
+      --pack-purple: #764ba2;
+      --pack-pink: #f093fb;
+      --dark: #0F172A;
+      --dark-light: #1E293B;
+      --gray: #64748B;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --gradient-pack: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --border-radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+      padding: 1rem 0;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--dark);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover { transform: scale(1.05); }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .navbar a {
+      padding: 0.75rem 1.25rem;
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--primary);
+      background: rgba(0, 217, 163, 0.1);
+    }
+
+    .cart-badge {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 50%;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 450px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-bg-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .shape-1 {
+      width: 400px;
+      height: 400px;
+      background: #FF6B9D;
+      top: -200px;
+      left: -100px;
+    }
+
+    .shape-2 {
+      width: 300px;
+      height: 300px;
+      background: #C770F0;
+      bottom: -150px;
+      right: -150px;
+      animation-delay: 5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(50px, -50px) rotate(120deg); }
+      66% { transform: translate(-50px, 50px) rotate(240deg); }
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Products Section */
+    .products-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(240, 147, 251, 0.15);
+      color: var(--pack-pink);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .pack-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: fadeInUp 0.6s ease-out backwards;
+      position: relative;
+    }
+
+    .pack-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .pack-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--gradient-pack);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      z-index: 2;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+    }
+
+    .pack-image {
+      position: relative;
+      height: 350px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .pack-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .pack-card:hover .pack-image img {
+      transform: scale(1.1);
+    }
+
+    .pack-info {
+      padding: 2rem;
+    }
+
+    .pack-category {
+      color: var(--pack-pink);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .pack-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .pack-description {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .pack-items {
+      background: var(--light);
+      padding: 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .pack-items-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pack-items-list {
+      list-style: none;
+    }
+
+    .pack-items-list li {
+      padding: 0.5rem 0;
+      color: var(--gray);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pack-items-list li::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .pack-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--light);
+    }
+
+    .pack-price-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .pack-original-price {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-decoration: line-through;
+    }
+
+    .pack-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .pack-currency {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .pack-discount {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-left: 0.5rem;
+    }
+
+    .add-to-cart-btn {
+      background: var(--gradient-pack);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+    }
+
+    .add-to-cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+    }
+
+    .add-to-cart-btn span:first-child {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    /* Benefits Section */
+    .benefits {
+      background: white;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+    }
+
+    .benefits-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .benefit-card {
+      text-align: center;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      background: var(--light);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem 1.5rem;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background: var(--dark-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--gradient-primary);
+      transform: translateY(-3px);
+    }
+
+    .social-link span {
+      font-size: 1.5rem;
+    }
+
+    .footer-section h4 {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-light);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* Scroll to Top */
+    .scroll-top {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 998;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 217, 163, 0.4);
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .navbar.active {
+        transform: translateX(0);
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .pack-name {
+        font-size: 1.25rem;
+      }
+
+      .pack-price {
+        font-size: 1.5rem;
+      }
+
+      .add-to-cart-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="imagenes/carrito logo.png" alt="Compra Segura Logo" class="logo-img">
+        <span>Compra Segura</span>
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="tecnologia.html">Tecnología</a>
+        <a href="joyerias.html">Joyería</a>
+        <a href="varios.html">Variados</a>
+        <a href="packs.html" class="active">Packs</a>
+        <a href="cart.html" class="cart-badge">
+          🛒 Carrito
+          <span class="cart-count" id="cart-count" style="display: none;">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>🎁 Packs Exclusivos de belleza</h1>
+        <p>Combos perfectos con descuentos especiales · Ideales para regalar o disfrutar</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-container">
+    <div class="section-header">
+      <span class="section-badge">Ofertas Especiales</span>
+      <h2>Nuestros Packs</h2>
+    </div>
+
+    <div class="products-grid">
+      <!-- Pack Romántico -->
+      <div class="pack-card">
+        <span class="pack-badge">💝 Más Vendido</span>
+        <div class="pack-image">
+          <img src="imagenes/Spa en Casa & Relax Corporal.jpg" alt="Pack Relax" loading="lazy">
+        </div>
+        <div class="pack-info">
+          <div class="pack-category">Pack Rlax</div>
+          <h3 class="pack-name">Spa en Casa & Relax Corporal</h3>
+          <p class="pack-description">
+            Ofrecer una experiencia completa de exfoliación, hidratación y relajación. Ideal para regalos especiales.
+          </p>
+          
+          <div class="pack-items">
+            <div class="pack-items-title">📦 Incluye:</div>
+            <ul class="pack-items-list">
+              <li>Crema Exfoliante Pink Dream Rosas (Wokali 600g)</li>
+              <li>Crema Ultra Hidra Urea 10 (Aclarat 45g)</li>
+              <li>Aceite Corporal de Lavanda (Vena 250ml)</li>
+              <li>Crema hidratante para pies de Aloe Vera (Nevada 120ml)</li>
+              <li>Gel Antibacterial de Manos 1L (Nevada)</li>
+            </ul>
+          </div>
+
+          <div class="pack-footer">
+            <div class="pack-price-container">
+              <span class="pack-original-price">S/. 220.00</span>
+              <div class="pack-price">
+                <span class="pack-currency">S/.</span>
+                <span>177</span>
+                <span class="pack-discount">-20%</span>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack Spa en Casa & Relax Corporal', 177)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pack-card">
+        <span class="pack-badge">🚀 Nuevo</span>
+        <div class="pack-image">
+          <img src="imagenes/RapunzelCrecimientoyReparaciónCapilar.jpg" alt="Pack Crecimiento capilar" loading="lazy">
+        </div>
+        <div class="pack-info">
+          <div class="pack-category">Pack Rapunzel</div>
+          <h3 class="pack-name">Rapunzel: Crecimiento y Reparación Capilar</h3>
+          <p class="pack-description">
+            Un tratamiento intensivo para personas que quieren detener la caída y acelerar el crecimiento del cabello.          </p>
+          
+          <div class="pack-items">
+            <div class="pack-items-title">📦 Incluye:</div>
+            <ul class="pack-items-list">
+              <li>Shampoo Romero Crecepelo (Nevada 520ml)</li>
+              <li>Crema Tratamiento Capilar De Aloe (110gr)</li>
+              <li>Tónico Capilar Romero (Vena 120ml)</li>
+              <li>Batana Oil 100% Puro (Keyoma)</li>
+              <li>Máscara Rectificadora Bella (500gr)</li>
+            </ul>
+          </div>
+
+          <div class="pack-footer">
+            <div class="pack-price-container">
+              <span class="pack-original-price">S/. 225.00</span>
+              <div class="pack-price">
+                <span class="pack-currency">S/.</span>
+                <span>180</span>
+                <span class="pack-discount">-20%</span>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack Crecimiento Capilar', 180)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pack-card">
+        <span class="pack-badge">💪 Recomendado</span>
+        <div class="pack-image">
+          <img src="imagenes/Glow Up FacialPiel de Porcelana1.jpg" alt="Glow Up Facial" loading="lazy">
+        </div>
+        <div class="pack-info">
+          <div class="pack-category">Glow Up</div>
+          <h3 class="pack-name">Glow Up Facial: Piel de Porcelana</h3>
+          <p class="pack-description">
+            Una rutina facial completa (estilo coreano) para iluminar, limpiar y proteger el rostro.</p>
+          
+          <div class="pack-items">
+            <div class="pack-items-title">📦 Incluye:</div>
+            <ul class="pack-items-list">
+              <li>Espuma Limpiadora Facial (Portugal 175ml)</li>
+              <li>Skin1004 Madagascar Centella Ampoule (30ml)</li>
+              <li>Velo Facial Frut Bosq Y Acid Hial (10unid)</li>
+              <li>Protector Solar 90 FPS (Nevada)</li>
+              <li>Agua Micelar en Gel (Vena 120ml)</li>
+            </ul>
+          </div>
+
+          <div class="pack-footer">
+            <div class="pack-price-container">
+              <span class="pack-original-price">S/. 255.00</span>
+              <div class="pack-price">
+                <span class="pack-currency">S/.</span>
+                <span>204</span>
+                <span class="pack-discount">-20%</span>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack Glow Up Facial: Piel de Porcelana Activa', 163)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pack-card">
+        <span class="pack-badge">🏠 Popular</span>
+        <div class="pack-image">
+          <img src="imagenes/S.O.S. Piel Grasa y Acné.jpg" alt="Piel Grasa y Acné" loading="lazy">
+        </div>
+        <div class="pack-info">
+          <div class="pack-category">Piel Grasa y Acné</div>
+          <h3 class="pack-name">S.O.S. Piel Grasa y Acné</h3>
+          <p class="pack-description">
+          Productos para controlar la grasa, limpiar poros y reducir brotes de acné.</p>
+          
+          <div class="pack-items">
+            <div class="pack-items-title">📦 Incluye:</div>
+            <ul class="pack-items-list">
+              <li>Limpiador Facial De Aleo Vera (225ml)</li>
+              <li>Skin1004 Madagascar Centella Ampoule (30ml)</li>
+              <li>Mascarilla Negra Hidroplástica (120g Nevada)</li>
+              <li>Gel Exfoliante de Limón (Fruit of the Wakali)</li>
+              <li>Agua Tonic Manzanill Acid Hialur (60ml Aclara-T)</li>
+            </ul>
+          </div>
+
+          <div class="pack-footer">
+            <div class="pack-price-container">
+              <span class="pack-original-price">S/. 145.00</span>
+              <div class="pack-price">
+                <span class="pack-currency">S/.</span>
+                <span>115</span>
+                <span class="pack-discount">-20%</span>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack S.O.S. Piel Grasa y Acné', 115)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pack-card">
+        <span class="pack-badge">✨ Caro y efectivo</span>
+        <div class="pack-image">
+          <img src="imagenes/BienestarTotal DetoxSalud.jpg" alt="Pack Bienestar Total" loading="lazy">
+        </div>
+        <div class="pack-info">
+          <div class="pack-category">Detox & Salud</div>
+          <h3 class="pack-name">Bienestar Total: Detox & Salud</h3>
+          <p class="pack-description">
+            Un combo de suplementos para sentirse bien por dentro y por fuera.</p>
+          <div class="pack-items">
+            <div class="pack-items-title">📦 Incluye:</div>
+            <ul class="pack-items-list">
+              <li>Liver Cleanse & Detox (60 cápsulas)</li>
+              <li>Gomitas de Vinagre de Sidra de Manzana (The Gummy Box)</li>
+              <li>Gomitas de Calcio + Vitamina D (Sottcor)</li>
+              <li>Combo DEOS + BREATIFY</li>
+            </ul>
+          </div>
+
+          <div class="pack-footer">
+            <div class="pack-price-container">
+              <span class="pack-original-price">S/. 343.00</span>
+              <div class="pack-price">
+                <span class="pack-currency">S/.</span>
+                <span>240</span>
+                <span class="pack-discount">-20%</span>
+              </div>
+            </div>
+            <button class="add-to-cart-btn" onclick="agregarAlCarrito('Pack Bienestar Total', 240)">
+              <span>+</span>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="benefits-container">
+      <div class="section-header">
+        <h2>¿Por qué elegir nuestros Packs?</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Ahorro Garantizado</h3>
+          <p>Hasta 25% de descuento en packs completos</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎁</div>
+          <h3>Regalo Perfecto</h3>
+          <p>Combos ideales para cualquier ocasión</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📦</div>
+          <h3>Todo Incluido</h3>
+          <p>Productos complementarios seleccionados</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🚚</div>
+          <h3>Envío Express</h3>
+          <p>Envío a solo S/20 en todos los packs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Compra Segura</h3>
+          <p>
+            Tu tienda online de confianza en Perú. Ofrecemos los mejores productos de tecnología, joyería y regalos con envío a todo el país.
+          </p>
+          <div class="social-links">
+            <a href="https://wa.me/51949578671" class="social-link" target="_blank" rel="noopener noreferrer">
+              <span>📱</span>
+            </a>
+            <a href="mailto:info@comprasegura.pe" class="social-link">
+              <span>✉️</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Categorías</h4>
+          <ul class="footer-links">
+            <li><a href="tecnologia.html">Tecnología</a></li>
+            <li><a href="joyerias.html">Joyería</a></li>
+            <li><a href="varios.html">Variados</a></li>
+            <li><a href="packs.html">Packs Temáticos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Información</h4>
+          <ul class="footer-links">
+            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a href="#envios">Envíos</a></li>
+            <li><a href="#garantia">Garantía</a></li>
+            <li><a href="#faqs">Preguntas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+51949578671">📞 949578671</a></li>
+            <li><a href="mailto:info@comprasegura.pe">✉️ Email</a></li>
+            <li>📍 Junín, Perú</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Compra Segura. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/51949578671?text=Hola,%20quisiera%20información%20sobre%20los%20packs%20temáticos" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- Scroll to Top -->
+  <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+    ↑
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navbar = document.querySelector('.navbar');
+      
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+          this.classList.toggle('active');
+          navbar.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking on a link
+        navbar.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            mobileMenuBtn.classList.remove('active');
+            navbar.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          });
+        });
+      }
+    });
+
+    // Scroll to Top
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.getElementById('scrollTop');
+      if (window.pageYOffset > 300) {
+        scrollTop.classList.add('visible');
+      } else {
+        scrollTop.classList.remove('visible');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Update cart count on load
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('carrito')) || [];
+      const count = cart.reduce((sum, item) => sum + (item.cantidad || 1), 0);
+      const cartCountEl = document.getElementById('cart-count');
+      if (count > 0) {
+        cartCountEl.textContent = count;
+        cartCountEl.style.display = 'inline';
+      } else {
+        cartCountEl.style.display = 'none';
+      }
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>
